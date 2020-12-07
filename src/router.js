@@ -16,7 +16,7 @@ const navegacao = pathName => {
 
     rootDiv.innerHTML = "";
     const iniciarRota = rotas[window.location.pathname];
-
+    console.log(iniciarRota);
     rootDiv.appendChild(iniciarRota)
 }
 window.navegacao = navegacao;
