@@ -33,7 +33,7 @@ const editaCliente = (id, cpf, nome) => {
         nome: nome,
         cpf: cpf
     });
-    return fetch(`http://localhost:4000/clienteps/cliente/${id}`, {
+    return fetch(`http://localhost:4000/clientes/cliente/${id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'

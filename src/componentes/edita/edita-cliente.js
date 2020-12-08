@@ -1,7 +1,7 @@
 import validaCPF from '../validacao/validaCPF.js';
 import { detalheCliente, editaCliente } from '../../api/cliente.js';
 
-const eventoForm = formEdicao => {
+const eventoForm = (formEdicao) => {
     const pegaURL = new URL(window.location);
     const id = pegaURL.searchParams.get('id');
     console.log(formEdicao);

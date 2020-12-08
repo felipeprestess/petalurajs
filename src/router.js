@@ -1,12 +1,11 @@
-import inicializaCadastro from './componentes/cadastro/componente-cadastro';
-import inicializaTabela from './componentes/listagem/listagem-cliente';
-import inicializaEditar from './componentes/edita/edita-cliente';
+import inicializaCadastro from './componentes/cadastro/componente-cadastro.js';
+import inicializaTabela from './componentes/listagem/listagem-cliente.js';
+import inicializaEditar from './componentes/edita/form-edicao.js';
 
 const rotas = {
     "/": inicializaTabela,
     "/cadastro":inicializaCadastro,
-    "/editar": inicializaEditar
-    
+    "/editar": inicializaEditar,
 }
 
 const rootDiv = document.querySelector('[data-container]');
@@ -16,14 +15,13 @@ const navegacao = pathName => {
 
     rootDiv.innerHTML = "";
     const iniciarRota = rotas[window.location.pathname];
-    console.log(iniciarRota);
-    rootDiv.appendChild(iniciarRota)
+    rootDiv.appendChild(iniciarRota())
 }
 window.navegacao = navegacao;
 
 window.onpopstate = () => {
     rootDiv.innerHTML = "";
-    rootDiv.appendChild(rotas[window.location.pathname]);
+    rootDiv.appendChild(rotas[window.location.pathname]());
 }
 
 export{navegacao};

@@ -10,14 +10,24 @@ const criaCorpoTabela = (tabela) => {
         const conteudoLinha = `
             <td>${cpf}</td>
             <td>${nome}</td>
-            <td>
-                <button id="rmvCliente" class="btn btn-danger" onclick="confirmarRemoverCliente(${id})">Remover</button>
-                <button class="btn btn-info" onclick="navegacao('/editar?id=${id}'); return false" type="button">Editar</button>
-            </td>
+            <button class="btn btn-info" onclick="navegacao('/editar?id=${id}'); return false;" type="button">Editar</button>
             `;
         
         linha.innerHTML = conteudoLinha;
+        linha.appendChild(criaBotaoExcluir(id));
         return linha;
+    }
+
+    const criaBotaoExcluir = (id) => {
+        const botaoExcluir = document.createElement('button');
+        botaoExcluir.classList.add('btn','btn-danger');
+        botaoExcluir.innerHTML = "Excluir";
+
+        botaoExcluir.addEventListener('click',() => {
+            confirmarRemoverCliente(id);
+        });
+
+        return botaoExcluir;
     }
 
     listagemClientes().then(exibe =>{
